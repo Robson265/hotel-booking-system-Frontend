@@ -1,0 +1,409 @@
+/* ─────────────────────────────────────────────────────────────────
+   GLOBAL BASE STYLES - Hotel Booking System
+   Shared utilities and reusable components
+   ───────────────────────────────────────────────────────────────── */
+
+:root {
+    /* Primary colors */
+    --primary: #4F46E5;
+    --primary-dark: #4338CA;
+    --primary-light: #EEF2FF;
+
+    /* Semantic colors */
+    --success: #10B981;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
+
+    /* Neutral colors */
+    --slate-900: #0F172A;
+    --slate-800: #1E293B;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748B;
+    --slate-400: #94A3B8;
+    --slate-300: #CBD5E1;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --white: #FFFFFF;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+    /* Border radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+
+    /* Transitions */
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: var(--slate-800);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   TYPOGRAPHY
+   ───────────────────────────────────────────────────────────────── */
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--slate-900);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--slate-800);
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    color: var(--slate-600);
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   FORM ELEMENTS
+   ───────────────────────────────────────────────────────────────── */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--slate-700);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--slate-900);
+    transition: var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--slate-400);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background: var(--slate-100);
+    color: var(--slate-400);
+    cursor: not-allowed;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   BUTTONS
+   ───────────────────────────────────────────────────────────────── */
+
+button,
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Primary button */
+.btn-primary,
+button:not(.btn-secondary):not(.btn-danger):not(.btn-ghost) {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-primary:hover,
+button:not(.btn-secondary):not(.btn-danger):not(.btn-ghost):hover {
+    background: var(--primary-dark);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Secondary button */
+.btn-secondary {
+    background: var(--slate-200);
+    color: var(--slate-800);
+}
+
+.btn-secondary:hover {
+    background: var(--slate-300);
+    transform: translateY(-2px);
+}
+
+/* Danger button */
+.btn-danger {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Ghost button */
+.btn-ghost {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-ghost:hover {
+    background: var(--primary-light);
+}
+
+/* Button states */
+button:disabled,
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Full width button */
+.btn-block {
+    width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ALERTS & MESSAGES
+   ───────────────────────────────────────────────────────────────── */
+
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: #ECFDF5;
+    border-left-color: var(--success);
+    color: #065F46;
+}
+
+.alert-danger {
+    background: #FEF2F2;
+    border-left-color: var(--danger);
+    color: #7F1D1D;
+}
+
+.alert-warning {
+    background: #FFFBEB;
+    border-left-color: var(--warning);
+    color: #78350F;
+}
+
+.alert-info {
+    background: #EFF6FF;
+    border-left-color: var(--info);
+    color: #0C2340;
+}
+
+.error-msg {
+    color: var(--danger);
+    font-size: 13px;
+    margin-top: var(--spacing-xs);
+}
+
+.success-msg {
+    color: var(--success);
+    font-size: 13px;
+    margin-top: var(--spacing-xs);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   GRID & FLEX HELPERS
+   ───────────────────────────────────────────────────────────────── */
+
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.flex {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   LOADING & EMPTY STATES
+   ───────────────────────────────────────────────────────────────── */
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl);
+    font-size: 14px;
+    color: var(--slate-600);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--slate-200);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: var(--spacing-md);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--slate-600);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE DESIGN
+   ───────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button,
+    .btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    input,
+    select,
+    textarea {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
